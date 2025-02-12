@@ -35,7 +35,9 @@ public class Person {
     }
 
 
-    
-    
+    @Override
+    public String toString() {
+        return "Person [Name=" + Name + ", Age=" + Age + ", Gender=" + Gender + "]";
+    }
 
 }
