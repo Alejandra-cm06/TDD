@@ -1,6 +1,8 @@
 package com.alejandracm;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,9 +22,10 @@ public class ValidadorContraseñaTest {
 
     @ParameterizedTest
 
-    @CsvSource({"Ab1!,false", "Abcd123!,true"})
+    @CsvSource({ "Ab1!,false", "Abcd123!,true" })
 
     void testContraseñaDebeTenerAlMenosOchoCaracteres(String contraseña, boolean resultadoEsperado) {
+        ValidadorContraseña validador = new ValidadorContraseña();
 
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
 
@@ -30,9 +33,10 @@ public class ValidadorContraseñaTest {
 
     @ParameterizedTest
 
-    @CsvSource({"abcdefg1!,false", "Abcdefg1!,true"})
+    @CsvSource({ "abcdefg1!,false", "Abcdefg1!,true" })
 
     void testContraseñaDebeContenerUnaMayúscula(String contraseña, boolean resultadoEsperado) {
+        ValidadorContraseña validador = new ValidadorContraseña();
 
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
 
@@ -40,9 +44,10 @@ public class ValidadorContraseñaTest {
 
     @ParameterizedTest
 
-    @CsvSource({"ABCDEFG1!,false", "Abcdefg1!,true"})
+    @CsvSource({ "ABCDEFG1!,false", "Abcdefg1!,true" })
 
     void testContraseñaDebeContenerUnaMinúscula(String contraseña, boolean resultadoEsperado) {
+        ValidadorContraseña validador = new ValidadorContraseña();
 
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
 
@@ -50,19 +55,20 @@ public class ValidadorContraseñaTest {
 
     @ParameterizedTest
 
-    @CsvSource({"Abcdefgh!,false", "Abcdefg1!,true"})
+    @CsvSource({ "Abcdefgh!,false", "Abcdefg1!,true" })
 
     void testContraseñaDebeContenerUnNúmero(String contraseña, boolean resultadoEsperado) {
-
+        ValidadorContraseña validador = new ValidadorContraseña();
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
 
     }
 
     @ParameterizedTest
 
-    @CsvSource({"Abcdefg1,false", "Abcdefg1!,true"})
+    @CsvSource({ "Abcdefg1,false", "Abcdefg1!,true" })
 
     void testContraseñaDebeContenerUnCaracterEspecial(String contraseña, boolean resultadoEsperado) {
+        ValidadorContraseña validador = new ValidadorContraseña();
 
         assertEquals(resultadoEsperado, validador.esValida(contraseña));
 
